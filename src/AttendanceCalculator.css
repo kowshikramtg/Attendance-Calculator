@@ -1,0 +1,67 @@
+*{
+    font-family : system-ui;
+}
+
+.inner-box{
+    background-color: #a4a4ba;
+    padding: 10px;
+    display: flex;
+    flex-direction : column; 
+    align-items: center; 
+    justify-content: center;
+    border-radius : 30px;
+    width : 600px;
+    margin-bottom: 15px;
+}
+.title{
+    margin-bottom: 50px;
+    font-size: 3.2rem;
+}
+.inner-box label{
+    color: #000;
+    font-weight: 400;
+    font-size: 1.3rem;
+
+}
+.inner-box input{
+    background-color: rgba(225, 225, 225, 1);
+    color: #000;
+    border: none;
+    width: 50px;
+    padding : 3px;
+    border-radius: 3px;
+    font-size: 1.1rem;
+}
+/* Remove arrows in Chrome, Safari, Edge */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove border and outline when active/focused */
+input[type=number] {
+    border: none;           /* remove border */
+    outline: none;          /* remove focus outline */
+}
+
+@media (max-width : 700px){
+    .inner-box{
+        width : 500px;
+    }
+    .title{
+        font-size : 2.0rem;
+    }
+    .inner-box label{
+        font-size : 1.1rem;
+    }
+
+}
+@media (max-width : 550px){
+    .inner-box{
+        width : 300px;
+    }
+    .title{
+        font-size : 2.3rem;
+    }
+}
