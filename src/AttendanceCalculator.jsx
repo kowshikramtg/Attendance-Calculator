@@ -52,12 +52,15 @@ You can bunk Max ${
         {/* DropDown  */}
         <div className="flex flex-col items-center justify-center min-l-screen text-white ">
           <div className=" p-6 w-80">
-            <h1 className="sm:text-2xl md:text-xl mb-4 text-center" style={{ fontSize: "25px" }}>
+            <h1
+              className="sm:text-2xl md:text-xl mb-4 text-center"
+              style={{ fontSize: "25px" }}
+            >
               Choose Subject
             </h1>
             <select
               onChange={handleChange}
-              className="w-full p-2 rounded-lg border bordr-grey-300 focus:outline-none focus:ring-2 focus:ring-white-500"
+              className="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
             >
               <option value="">--Select Subject--</option>
               {Object.keys(subjectData).map((subject) => (
@@ -66,12 +69,22 @@ You can bunk Max ${
                 </option>
               ))}
             </select>
+            <div className="total-classesMan">
+              <label htmlFor="total-classesId">Total Classes: </label>
+              <input
+                type="number"
+                id="total-classesId"
+                value={totalClasses}
+                onChange={(e) => setTotalClasses(e.target.value)}
+              />
+            </div>
+
           </div>
         </div>
 
         <br />
         <div className="req">
-          <label for="required-percent">Required Percentage (%): </label>
+          <label htmlFor="required-percent">Required Percentage (%): </label>
           <input
             id="required-percent"
             type="number"
@@ -81,7 +94,7 @@ You can bunk Max ${
         </div>
         <br />
         <div className="attended">
-          <label for="class-attended">Classes Attended: </label>
+          <label htmlFor="class-attended">Classes Attended: </label>
           <input
             id="class-attended"
             type="number"
@@ -91,7 +104,7 @@ You can bunk Max ${
         </div>
         <br />
         <div className="held">
-          <label for="class-held">Classes Held: </label>
+          <label htmlFor="class-held">Classes Held: </label>
           <input
             id="class-held"
             type="number"
@@ -102,7 +115,12 @@ You can bunk Max ${
         <br />
       </div>
 
-      <h2 className="text-lg sm:text-xl  leading-relaxed" style={{ whiteSpace: "pre-line" }}>{calculate()}</h2>
+      <h2
+        className="text-lg  sm:text-xl  leading-relaxed p-4 mt-4 rounded-lg bg-gray-100 text-black"
+        style={{ whiteSpace: "pre-line" }}
+      >
+        {calculate()}
+      </h2>
     </div>
   );
 }

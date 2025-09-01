@@ -45,6 +45,11 @@ input[type=number] {
     outline: none;          /* remove focus outline */
 }
 
+.total-classesMan{
+    margin-bottom: -30px;
+}
+
+
 @media (max-width : 700px){
     .inner-box{
         width : 500px;
