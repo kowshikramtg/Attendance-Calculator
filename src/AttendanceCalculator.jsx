@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Attendancecalculator.css";
+import "./AttendanceCalculator.css";
 
 function AttendanceCalculator() {
   const [totalClasses, setTotalClasses] = useState(0);
