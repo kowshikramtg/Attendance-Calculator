@@ -60,7 +60,7 @@ You can bunk Max ${
             </h1>
             <select
               onChange={handleChange}
-              className="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-half p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
             >
               <option value="">--Select Subject--</option>
               {Object.keys(subjectData).map((subject) => (
@@ -121,6 +121,7 @@ You can bunk Max ${
       >
         {calculate()}
       </h2>
+      <h2 className="text-sm leading-relaxed p-4 mt-4 rounded-lg bg-black-100 text-white">This is a calculated number, it may varry to real-time scenario</h2>
     </div>
   );
 }
