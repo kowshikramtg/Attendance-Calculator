@@ -3,7 +3,7 @@ import "./AttendanceCalculator.css";
 
 function AttendanceCalculator() {
   const [totalClasses, setTotalClasses] = useState(0);
-  const [requiredPercent, setRequiredPercent] = useState("");
+  const [requiredPercent, setRequiredPercent] = useState(70);
   const [attended, setAttended] = useState("");
   const [held, setHeld] = useState("");
 
@@ -35,36 +35,48 @@ function AttendanceCalculator() {
     const needToAttend = Math.max(0, Math.ceil(neededDouble));
 
     if (needToAttend > remaining) {
-      return `It's not possible to reach your required attendance percentage.
-Attend all ${remaining} remaining classes to reach the maximum possible percentage, which is required.`;
+      return (
+      <>
+        It's not possible to reach your required attendance %<br />
+        Attend all <span className="font-bold">{remaining}</span> remaining classes to reach the minimum possible percentage.
+      </>
+      );
     }
-
-    return `Present % = ${presentPer.toFixed(2)}%
-You can bunk Max ${
-      remaining - needToAttend
-    } classes & still maintain ${rqPercent}%`;
+    if((remaining-needToAttend) === 0){
+      return(
+        <>No more classes to bunk & not in any danger.<br/> <span className="font-bold">Attend regularly</span></>
+      )
+    }
+    return (
+      <>
+      Present % = {presentPer.toFixed(2)}%<br/>
+You can bunk Max <span className="font-bold">{
+  remaining - needToAttend
+}</span> classes & still maintain {rqPercent}%
+</>
+  )
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h1 className="title">Attendance Bunk Calculator</h1>
+    <div className="flex flex-col items-center justify-center h-100vh" style={{ padding: "20px", fontFamily: "Arial" }}>
+      <h1 className="title"> Attendance-Bunk Calculator</h1>
       <div className="inner-box">
         {/* DropDown  */}
-        <div className="flex flex-col items-center justify-center min-l-screen text-white ">
+        <div className="flex flex-col items-center justify-center min-l-screen text-white">
           <div className=" p-6 w-80">
             <h1
-              className="sm:text-2xl md:text-xl mb-4 text-center"
-              style={{ fontSize: "25px" }}
+              className="sm:text-2xl md:text-xl mb-3 -mt-2 text-center text-black"
+              style={{ fontSize: "30px" }}
             >
               Choose Subject
             </h1>
             <select
               onChange={handleChange}
-              className="w-half p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
+              className="w-half p-2 rounded-lg text-black bg-white focus:outline-black focus:ring-2 focus:ring-white border border-black"
             >
-              <option value="">--Select Subject--</option>
+              <option value="" className="text-black">-Subject-</option>
               {Object.keys(subjectData).map((subject) => (
-                <option key={subject} value={subject}>
+                <option key={subject} value={subject} className="bg-white text-black">
                   {subject}
                 </option>
               ))}
@@ -116,12 +128,12 @@ You can bunk Max ${
       </div>
 
       <h2
-        className="text-lg  sm:text-xl  leading-relaxed p-4 mt-4 rounded-lg bg-gray-100 text-black"
+        className="text-lg  sm:text-xl  leading-relaxed p-4 mt-0 rounded-lg bg-green-200 text-black"
         style={{ whiteSpace: "pre-line" }}
       >
         {calculate()}
       </h2>
-      <h2 className="text-sm leading-relaxed p-4 mt-4 rounded-lg bg-black-100 text-white">This is a calculated number, it may varry to real-time scenario</h2>
+      <h2 className="text-sm leading-relaxed p-4 -mt-2 rounded-lg bg-black-100 text-white">This is a calculated number, it may varry to real-time scenario</h2>
     </div>
   );
 }
