@@ -9,11 +9,12 @@ function AttendanceCalculator() {
 
   // Mapping subjects to their total classes
   const subjectData = {
-    SEPM: 40,
+    SEPM: 52,
     CN: 50,
     TOC: 50,
     AI: 40,
-    RM: 40,
+    RM: 50,
+    EVS: 30,
   };
   const handleChange = (event) => {
     const subject = event.target.value;
@@ -134,6 +135,7 @@ You can bunk Max <span className="font-bold">{
         {calculate()}
       </h2>
       <h2 className="text-sm leading-relaxed p-4 -mt-2 rounded-lg bg-black-100 text-white">This is a calculated number, it may varry to real-time scenario</h2>
+      <a href="https://www.linkedin.com/in/kowshik-t-g-036b852b4" target="_blank" rel="noopener noreferrer" className="text-xl text-white">@Kowshiktg</a>
     </div>
   );
 }
