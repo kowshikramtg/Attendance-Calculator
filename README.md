@@ -29,7 +29,7 @@ Visit the live application, and try it ~> [https://attendance-calculator-six.ver
 - Styling: some inline CSS with modern design principles
 - Deployment: Vercel
 - Version Control: Git & GitHub
-## User guide
+## Use cases
 1. Select Subject: Choose your subject from the dropdown menu or else you can keep your own number of Total classes
 2. Input Data: The app displays:
   - Total Classes conducted
@@ -39,6 +39,87 @@ Visit the live application, and try it ~> [https://attendance-calculator-six.ver
 3. Claculation Logic
 
 ```
-Present % = (Classes Attended / Classes Held) × 100
-Max Bunk Classes = Classes that can be skipped while maintaining required percentage
+    const totalClasses = parseInt(totalClasses) || 0;
+    const rqPercent = parseInt(requiredPercent) || 0;
+    const attended = parseInt(attended) || 0;
+    const held = parseInt(held) || 0;
+
+    if (held === 0) return "Please enter classes held > 0.";
+    const percent = rqPercent / 100.0;
+    const presentPer = (a / h) * 100;
+
+    const remaining = totalClasses - held;
+    const neededDouble = percent * totalClasses - attendedd;
+    const needToAttend = Math.max(0, Math.ceil(neededDouble));
 ```
+
+### User Manual
+1. Getting Started
+
+- Open the application in your web browser
+- Select your subject from the "Choose Subject" dropdown
+- The app will display your current attendance data
+
+2. Understanding the Display
+
+- Total Classes: Total number of classes conducted so far
+- Required Percentage: Minimum attendance percentage required (usually 70%)
+- Classes Attended: Number of classes you have attended
+- Classes Held: Total classes held for the subject
+
+3. Reading Results
+
+- Green Background: Safe attendance level
+- Current Percentage: Your present attendance percentage
+- Bunk Limit: Maximum classes you can skip while maintaining the required percentage
+
+4. Tips 
+
+- Update your attendance data.
+- Personal warning ~> "This is a calculated number, it may vary to real-time scenario"
+
+## Quick start 
+1. Prerequisites
+
+- Web browser (Chrome, Firefox, Safari, Edge)
+- Internet connection for live demo
+
+  **(install npm before start)**
+2. Local Development
+
+- Clone the repository
+  ```
+  git clone https://github.com/kowshikramtg/Attendance-Calculator.git
+  cd Attendance-Calculator
+  ```
+- open in browser
+  ```
+  npm run dev
+  ```
+- **Contributing**
+  ~> Contributes are welcome!
+  1. Fork the repo
+  2. Create a feature branch
+     ```
+     git checkout -b feature/amazing-feature
+     ```
+  3. commit your changes
+     ```
+     git commit -m 'Add some amazing feature'
+     ```
+  4. Push to the branch
+     ```
+     git push origin feature/amazing-feature
+     ```
+  5. Open a Pull request
+- **Contributions Guidlines**
+  - Add comments for complex logic
+  - Follow existing code style and formatting
+  - Test your changes thoroughly
+  - Update documentation if needed
+  - Be respectful and constructive in discussions
+  - Be open for any review on your PRs. Don't feel discouraged / get upset on unmerged PRs.
+## Acknowledgments
+- Thanks to all contributions who have helped improve this project.
+- Inspired by the need for simple Attendance Class Bunk.
+- Thank you all, drop comments for any my-sided changes. 
