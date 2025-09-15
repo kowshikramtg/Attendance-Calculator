@@ -1,7 +1,7 @@
 # Attendance - Bunk Calculator
 A smart and real-world problem solving web application that helps students calculate their attendance percentage and determine how many classes they can safely skip while maintaining the minimum required attendance for specific subject.
 ## preview
-![preview](./src/assets/attendance.png)
+![preview](./src/assets/dashboard.png)
 
 ## Features
 - Subject Selection: Choose from multiple subjects with dropdown menu, or else keep Total classes as your choice.
